@@ -8,7 +8,8 @@ public class Deck
 	private  int index;
 	private Random gen = new Random ();
 	private int count;
-	//constructor the the Deck
+
+	//constructor for the Deck
 	public Deck ()
 	{
 		count = 0;
@@ -29,14 +30,14 @@ public class Deck
 		count = 51;
 	}
 	
-	//draws a card from a random spot in the deck
+	// Draws a card from a random spot in the deck
 	public Card drawFromDeck()
 	{
 		 index = gen.nextInt(cards.size());
 		return cards.get(index);
 	}
 	
-	//prints the size of the deck of cards
+	// Prints the size of the deck of cards
 	public static int getTotalCards ()
 	{
 		return cards.size();
@@ -50,6 +51,7 @@ public class Deck
 		}
 	}
 	
+	// Shuffle the card deck 10 times
 	public void shuffleDeck()
 	{
 		for (int a = 0 ; a <=10; a++)
@@ -63,7 +65,8 @@ public class Deck
 		return Deck.cards;
 	}
 	
-	public Card topCard () //returns the top card of the deck without decrementing count
+	//returns the top card of the deck without decrementing count
+	public Card topCard () 
 	{
 		return cards.get(count);
 	}
@@ -75,7 +78,8 @@ public class Deck
 		return temp;
 	}
 	
-	public int getCount () //returns the number of cards in the deck
+	//returns the number of cards in the deck
+	public int getCount () 
 	{
 		return (count + 1);
 	}
