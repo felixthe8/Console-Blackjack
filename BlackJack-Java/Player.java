@@ -1,4 +1,4 @@
-package Cards;
+
 import java.util.*;
 public class Player 
 {
@@ -51,7 +51,9 @@ public class Player
 	// Prints the player's hand
 	public void getHand ()
 	{
-		System.out.println(hand);
+		for(Card c: hand) {
+			System.out.print("\t"+c);
+		}
 	}
 	
 	// Sets the total of the cards in the player's hand

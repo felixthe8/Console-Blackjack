@@ -1,4 +1,3 @@
-package Cards;
 
 import java.util.*;
 
@@ -22,7 +21,6 @@ public class Driver
 		Scanner menuInput = new Scanner(System.in);
 		Scanner gameInput = new Scanner(System.in);
 		Scanner betInput = new Scanner (System.in);
-		System.out.println("BlackJack Game");
 		System.out.println(Menu());
 		
 		int choice = menuInput.nextInt();
@@ -30,26 +28,20 @@ public class Driver
 		{
 			switch (choice)
 			{
-			// Show the menu	
-			case 1 : deck1 = new Deck (); 
-					System.out.println("BlackJack Game");
-					System.out.println(Menu());
-					break;
 
 			// Shuffle the cards
-			case 2 : deck1.shuffleDeck(); 
-					System.out.println("BlackJack Game");
-					System.out.println(Menu());
-			break;
+			case 1 : deck1.shuffleDeck(); 
+					System.out.println("\n --- Deck has been shuffled ! ---");
+					deck1.print();
+					break;
 
 			// Print the card deck
-			case 3 : deck1.print();    
-					System.out.println("BlackJack Game");
-					System.out.println(Menu());
-			break;
+			case 2 : System.out.println("\n --- Printing the deck ---"); 
+					deck1.print();    
+					break;
 
 			// Start the blackjack game
-			case 4 : 
+			case 3 : 
 			        // Starting value of the cards in the player's hand is 0
 					p1.setTotal(0);  
 					// Starting value of the cards in the dealer's hand is 0
@@ -61,7 +53,7 @@ public class Driver
 					}
 					System.out.println("Player has this much money : $"+p1.getMoney() + "\n"+ "How much do you want to bet?" );
 					int bI = betInput.nextInt();
-					System.out.println(" ");
+					System.out.println("\n");
 					
 					// If the player is able to bet the amount that they have input
 					if (p1.canBet(bI))
@@ -99,6 +91,7 @@ public class Driver
 						System.out.println("Player is "+ ( 21 - p1.getTotal() )  +" from victory");
 						System.out.println("Would you like to hit?   ( Y / N )"); 
 						String gInput = gameInput.next();
+						System.out.println("\n\n");
 						
 						if (gInput.equalsIgnoreCase("y") || (gInput.equalsIgnoreCase("yes") ) )
 						{
@@ -174,7 +167,7 @@ public class Driver
 								System.out.println("YOU WIN!!!");
 								System.out.println("Dealer's hand : ");
 								dealer.getHand();
-								System.out.println("Total value of these cards : " +dealer.getTotal());
+								System.out.println("Total value of these cards : " +dealer.getTotal()+"\n");
 								System.out.println("Player's hand : " );
 								p1.getHand();
 								System.out.println("Total value of these cards : " +p1.getTotal());
@@ -188,7 +181,7 @@ public class Driver
 								p1.setMoney(p1.getMoney()+bI);
 								System.out.println("YOU WIN!!!");
 								System.out.println("Dealer's hand : ");
-								System.out.println("Total value of these cards : " +dealer.getTotal());
+								System.out.println("Total value of these cards : " +dealer.getTotal()+"\n");
 								dealer.getHand();
 								System.out.println("Player's hand : " );
 								p1.getHand();
@@ -204,7 +197,7 @@ public class Driver
 								System.out.println("YOU LOSE!!!");
 								System.out.println("Dealer's hand : ");
 								dealer.getHand();
-								System.out.println("Total value of these cards : " +dealer.getTotal());
+								System.out.println("Total value of these cards : " +dealer.getTotal()+"\n");
 								System.out.println("Player's hand : " );
 								p1.getHand();
 								System.out.println("Total value of these cards : " +p1.getTotal());
@@ -221,7 +214,7 @@ public class Driver
 									System.out.println("YOU WIN!!!");
 									System.out.println("Dealer's hand : ");
 									dealer.getHand();
-									System.out.println("Total value of these cards : " +dealer.getTotal());
+									System.out.println("Total value of these cards : " +dealer.getTotal()+"\n");
 									System.out.println("Player's hand : " );
 									p1.getHand();
 									System.out.println("Total value of these cards : " +p1.getTotal());
@@ -234,7 +227,7 @@ public class Driver
 									System.out.println("YOU LOSE!!!");
 									System.out.println("Dealer's hand : ");
 									dealer.getHand();
-									System.out.println("Total value of these cards : " +dealer.getTotal());
+									System.out.println("Total value of these cards : " +dealer.getTotal()+"\n");
 									System.out.println("Player's hand : " );
 									p1.getHand();
 									System.out.println("Total value of these cards : " +p1.getTotal());
@@ -248,10 +241,9 @@ public class Driver
 					
 			} //end  while  
 					
-			case 5 : System.exit(0); break ;
+			case 4 : System.exit(0); break ;
 			}//end switch
 				break ;	
-				
 				
 		} // end while
 	
@@ -263,14 +255,13 @@ public class Driver
 	
 	public static String Menu ()
 	{
-		String menu =  "(Be sure to shuffle the deck before you play)\n" + 
-				   "1. New Deck" + "\n" +
-				   "2. Shuffle cards in Deck" + "\n" +
-				   "3. Display all cards remaining in the deck" + "\n" +
-				   "4. Play Black Jack" + "\n" + 		   
-				   "5. Exit";
+		String menu =  "\n\n --- BlackJack Game --- \tHAVE FUN ! \n" + 
+				   "1. Shuffle cards in Deck" + "\n" +
+				   "2. Print the card deck "+ "\n"+
+				   "3. Play Black Jack" + "\n" + 		   
+				   "4. Exit"+"\n";
 		
-	return menu;
+		return menu;
 	}
 
 }
