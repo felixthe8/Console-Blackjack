@@ -1,4 +1,4 @@
-# Console-Blackjack
+# Console Blackjack
 CECS 174 Spring 2014  
 This is the repository for my CECS 174 final project. The goal of this project was to create a Blackjack game that could be played directly from the console. 
 
